@@ -8,6 +8,5 @@ export async function fetchData() {
   const apiKey = "R6QL2SBQFA4DLNWLV2NE347ZA";
   const response = await fetch(`${baseURL}${param}?key=${apiKey}`);
   const data = await response.json();
-  console.log(response);
   return data;
 }
