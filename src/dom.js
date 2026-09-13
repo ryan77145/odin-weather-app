@@ -1,7 +1,11 @@
 export const weatherData = document.querySelector(".weatherData");
 export const cityInput = document.querySelector(".cityInput");
 export const btn = document.querySelector(".getWeatherBtn");
-export const convertBtn = document.querySelector('.fOrC');
+export const convertBtn = document.querySelector('.unitConversion');
+export const threeDayBtn = document.querySelector('.threeDay');
+export const fiveDayBtn = document.querySelector('.fiveDay');
+export const sevenDayBtn = document.querySelector('.sevenDay');
+export const tenDayBtn = document.querySelector('.tenDay')
 export const todaysWeather = document.querySelector('.todaysWeather');
 export const locationName = document.querySelector('.location')
 export const currentTemperature = document.querySelector('.currentTemperature')

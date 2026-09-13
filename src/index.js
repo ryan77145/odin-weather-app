@@ -46,8 +46,12 @@ import {
   tenthDayLow,
   tenthDayConditions,
   convertBtn,
+  threeDayBtn,
+  fiveDayBtn,
+  sevenDayBtn,
+  tenDayBtn,
 } from "./dom.js";
-import { fetchData } from "./weatherApi.js";
+import { fetchData, defaultFetchData } from "./weatherApi.js";
 import {
   returnLocation,
   returnCurrentTemp,
@@ -64,9 +68,21 @@ import {
   returnWeatherIcon,
   toCelsius,
   toFahrenheit,
+  threeDayDisplay,
+  fiveDayDisplay,
+  sevenDayDisplay,
+  tenDayDisplay,
+  returnThirdDayDate,
+  returnFourthDayDate,
+  returnFifthDayDate,
+  returnFifthDayLow,
+  returnFifthDayHigh,
+  returnFifthDayConditions,
+  returnFourthDayHigh,
+  returnFourthDayConditions,
 } from "./weatherData.js";
 
-fetchData().then(function (data) {
+defaultFetchData().then(function (data) {
   returnLocation(data, locationName);
   returnCurrentTemp(data, currentTemperature);
   returnHigh(data, currentDayHigh);
@@ -76,9 +92,17 @@ fetchData().then(function (data) {
   returnNextDayHigh(data, nextDayHigh);
   returnNextDayLow(data, nextDayLow);
   returnNextDayConditions(data, nextDayConditions);
+  returnThirdDayDate(data, thirdDayDate);
   returnThirdDayHigh(data, thirdDayHigh);
   returnThirdDayLow(data, thirdDayLow);
   returnThirdDayConditions(data, thirdDayConditions);
+  returnFourthDayDate(data, fourthDayDate);
+  returnFourthDayHigh(data, fourthDayHigh);
+  returnFourthDayConditions(data, fourthDayConditions);
+  returnFifthDayDate(data, fifthDayDate);
+  returnFifthDayHigh(data, fifthDayHigh);
+  returnFifthDayLow(data, fifthDayLow);
+  returnFifthDayConditions(data, fifthDayConditions);
   returnWeatherIcon(data, weatherIcon);
 });
 
@@ -94,9 +118,17 @@ cityInput.addEventListener("keydown", function (event) {
       returnNextDayHigh(data, nextDayHigh);
       returnNextDayLow(data, nextDayLow);
       returnNextDayConditions(data, nextDayConditions);
+      returnThirdDayDate(data, thirdDayDate);
       returnThirdDayHigh(data, thirdDayHigh);
       returnThirdDayLow(data, thirdDayLow);
       returnThirdDayConditions(data, thirdDayConditions);
+      returnFourthDayDate(data, fourthDayDate);
+      returnFourthDayHigh(data, fourthDayHigh);
+      returnFourthDayConditions(data, fourthDayConditions);
+      returnFifthDayDate(data, fifthDayDate);
+      returnFifthDayHigh(data, fifthDayHigh);
+      returnFifthDayLow(data, fifthDayLow);
+      returnFifthDayConditions(data, fifthDayConditions);
       returnWeatherIcon(data, weatherIcon);
     });
     cityInput.value = "";
@@ -114,24 +146,44 @@ btn.addEventListener("click", () => {
     returnNextDayHigh(data, nextDayHigh);
     returnNextDayLow(data, nextDayLow);
     returnNextDayConditions(data, nextDayConditions);
+    returnThirdDayDate(data, thirdDayDate);
     returnThirdDayHigh(data, thirdDayHigh);
     returnThirdDayLow(data, thirdDayLow);
     returnThirdDayConditions(data, thirdDayConditions);
+    returnFourthDayDate(data, fourthDayDate);
+    returnFourthDayHigh(data, fourthDayHigh);
+    returnFourthDayConditions(data, fourthDayConditions);
+    returnFifthDayDate(data, fifthDayDate);
+    returnFifthDayHigh(data, fifthDayHigh);
+    returnFifthDayLow(data, fifthDayLow);
+    returnFifthDayConditions(data, fifthDayConditions);
     returnWeatherIcon(data, weatherIcon);
   });
   cityInput.value = "";
 });
 
-convertBtn.addEventListener('click', () => {
-if (convertBtn.textContent === "F °") {
-  convertBtn.textContent = "C °"
-  toCelsius()
-}
+convertBtn.addEventListener("click", () => {
+  if (convertBtn.textContent === "F °") {
+    convertBtn.textContent = "C °";
+    toCelsius();
+  } else if (convertBtn.textContent === "C °") {
+    convertBtn.textContent = "F °";
+    toFahrenheit();
+  }
+});
 
+threeDayBtn.addEventListener("click", () => {
+  threeDayDisplay();
+});
 
-else if (convertBtn.textContent === "C °") {
-  convertBtn.textContent = "F °"
-  toFahrenheit();
-}
+fiveDayBtn.addEventListener("click", () => {
+  fiveDayDisplay();
+});
 
+sevenDayBtn.addEventListener("click", () => {
+  sevenDayDisplay();
+});
+
+tenDayBtn.addEventListener("click", () => {
+  tenDayDisplay();
 });

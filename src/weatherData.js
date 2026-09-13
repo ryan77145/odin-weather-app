@@ -61,6 +61,13 @@ export function returnNextDayConditions(response, nextDayConditions) {
   nextDayConditions.appendChild(nextDayConditionInfo);
 }
 
+export function returnThirdDayDate(response, thirdDayDate) {
+  const thirdDayDateInfo = document.createElement("span");
+  thirdDayDateInfo.setAttribute("class", "thirdDayDateInfo");
+  thirdDayDateInfo.textContent = response.days[2].datetime;
+  thirdDayDate.appendChild(thirdDayDateInfo);
+}
+
 export function returnThirdDayHigh(response, thirdDayHigh) {
   const thirdDayHighInfo = document.createElement("span");
   thirdDayHighInfo.setAttribute("class", "thirdDayHighInfo");
@@ -82,6 +89,13 @@ export function returnThirdDayConditions(response, thirdDayConditions) {
   thirdDayConditions.appendChild(thirdDayConditionInfo);
 }
 
+export function returnFourthDayDate(response, fourthDayDate) {
+  const fourthDayDateInfo = document.createElement("span");
+  fourthDayDateInfo.setAttribute("class", "fourthDayDateInfo");
+  fourthDayDateInfo.textContent = response.days[3].datetime;
+  fourthDayDate.appendChild(fourthDayDateInfo);
+}
+
 export function returnFourthDayHigh(response, fourthDayHigh) {
   const fourthDayHighInfo = document.createElement("span");
   fourthDayHighInfo.setAttribute("class", "fourthDayHighInfo");
@@ -97,19 +111,39 @@ export function returnFourthDayLow(response, fourthDayLow) {
 }
 
 export function returnFourthDayConditions(response, fourthDayConditions) {
-  const fourthDayConditionsInfo = document.createElement('span');
-  fourthDayConditionsInfo.setAttribute('class', 'fourthDayConditionsInfo');
+  const fourthDayConditionsInfo = document.createElement("span");
+  fourthDayConditionsInfo.setAttribute("class", "fourthDayConditionsInfo");
   fourthDayConditionsInfo.textContent = response.days[3].conditions;
   fourthDayConditions.appendChild(fourthDayConditionsInfo);
 }
 
-export function returnFifthDayhigh(response, fifthDayHigh) {
-
+export function returnFifthDayDate(response, fifthDayDate) {
+  const fifthDayDateInfo = document.createElement("span");
+  fifthDayDateInfo.setAttribute("class", "fifthDayDateInfo");
+  fifthDayDateInfo.textContent = response.days[4].datetime;
+  fifthDayDate.appendChild(fifthDayDateInfo);
 }
 
-export function returnFifthDayLow(response, fifthDayLow) {}
+export function returnFifthDayHigh(response, fifthDayHigh) {
+  const fifthDayHighInfo = document.createElement("span");
+  fifthDayHighInfo.setAttribute("class", "fifthDayHighInfo");
+  fifthDayHighInfo.textContent = response.days[4].tempmax;
+  fifthDayHigh.appendChild(fifthDayHighInfo);
+}
 
-export function returnFifthDayConditions(response, fifthDayConditions) {}
+export function returnFifthDayLow(response, fifthDayLow) {
+  const fifthDayLowInfo = document.createElement("span");
+  fifthDayLowInfo.setAttribute("class", "fifthDayLowInfo");
+  fifthDayLowInfo.textContent = response.days[4].tempmin;
+  fifthDayLow.appendChild(fifthDayLowInfo);
+}
+
+export function returnFifthDayConditions(response, fifthDayConditions) {
+  const fifthDayConditionsInfo = document.createElement('span')
+  fifthDayConditionsInfo.setAttribute('class', "fifthDayConditionsInfo")
+  fifthDayConditionsInfo.textContent = response.days[4].conditions
+  fifthDayConditions.appendChild(fifthDayConditionsInfo);
+}
 
 export function returnSixthDayHigh(response, sixthDayHigh) {}
 
@@ -148,7 +182,7 @@ export function returnWeatherIcon(response, weatherIcon) {
   const rainy = "assets/rainy.png";
   const storming = "assets/storming.png";
   const snowy = "assets/snowing.png";
-  
+
   for (let i = 0; i < 10; i++) {
     const conditions = response.days[i].conditions;
     const checkConditions = conditions.split(", ");
@@ -169,27 +203,87 @@ export function returnWeatherIcon(response, weatherIcon) {
     }
     if (checkConditions[0] === "Storms") {
       weatherIcon[i].src = storming;
-    } 
+    }
   }
 }
 
 export function toFahrenheit() {
-    const tempElements = document.querySelectorAll(
-    ".currentTempInfo, .currentDayTempMaxInfo, .currentDayTempMinInfo, .realFeelInfo, .nextDayHighInfo, .nextDayLowInfo, .thirdDayHighInfo, .thirdDayLowInfo, .fourthDayHighInfo, .fourthDayLowInfo, .fifthDayHighInfo, .fifthDayLowInfo, .sixthDayHighInfo, .sixthDayLowInfo, .seventhDayHighInfo, .seventhDayLowInfo, .eighthDayHighInfo, .eighthDayLowInfo, .ninthDayHighInfo, .ninthDayLowInfo, .tenthDayHighInfo, .tenthDayLowInfo"
+  const tempElements = document.querySelectorAll(
+    ".currentTempInfo, .currentDayTempMaxInfo, .currentDayTempMinInfo, .realFeelInfo, .nextDayHighInfo, .nextDayLowInfo, .thirdDayHighInfo, .thirdDayLowInfo, .fourthDayHighInfo, .fourthDayLowInfo, .fifthDayHighInfo, .fifthDayLowInfo, .sixthDayHighInfo, .sixthDayLowInfo, .seventhDayHighInfo, .seventhDayLowInfo, .eighthDayHighInfo, .eighthDayLowInfo, .ninthDayHighInfo, .ninthDayLowInfo, .tenthDayHighInfo, .tenthDayLowInfo",
   );
-    tempElements.forEach(function (el) {
+  tempElements.forEach(function (el) {
     const tempC = parseFloat(el.textContent);
-    el.textContent = ((tempC * 9/5) + 32).toFixed(1);
+    el.textContent = ((tempC * 9) / 5 + 32).toFixed(1);
   });
-} 
+}
 
 export function toCelsius() {
   const tempElements = document.querySelectorAll(
-    ".currentTempInfo, .currentDayTempMaxInfo, .currentDayTempMinInfo, .realFeelInfo, .nextDayHighInfo, .nextDayLowInfo, .thirdDayHighInfo, .thirdDayLowInfo, .fourthDayHighInfo, .fourthDayLowInfo, .fifthDayHighInfo, .fifthDayLowInfo, .sixthDayHighInfo, .sixthDayLowInfo, .seventhDayHighInfo, .seventhDayLowInfo, .eighthDayHighInfo, .eighthDayLowInfo, .ninthDayHighInfo, .ninthDayLowInfo, .tenthDayHighInfo, .tenthDayLowInfo"
+    ".currentTempInfo, .currentDayTempMaxInfo, .currentDayTempMinInfo, .realFeelInfo, .nextDayHighInfo, .nextDayLowInfo, .thirdDayHighInfo, .thirdDayLowInfo, .fourthDayHighInfo, .fourthDayLowInfo, .fifthDayHighInfo, .fifthDayLowInfo, .sixthDayHighInfo, .sixthDayLowInfo, .seventhDayHighInfo, .seventhDayLowInfo, .eighthDayHighInfo, .eighthDayLowInfo, .ninthDayHighInfo, .ninthDayLowInfo, .tenthDayHighInfo, .tenthDayLowInfo",
   );
 
   tempElements.forEach(function (el) {
     const tempF = parseFloat(el.textContent);
-    el.textContent = ((tempF - 32) * 5 / 9).toFixed(1);
+    el.textContent = (((tempF - 32) * 5) / 9).toFixed(1);
   });
+}
+
+export function threeDayDisplay() {
+  const daysFourThroughTen = document.querySelectorAll(
+    ".dayFourWeather, .dayFiveWeather, .daySixWeather, .daySevenWeather, .dayEightWeather, .dayNineWeather, .dayTenWeather",
+  );
+
+  const otherDays = document.querySelectorAll(
+    ".todaysWeather, .tomorrowsWeather, .dayThreeWeather",
+  );
+
+  for (let e of daysFourThroughTen) {
+    e.classList.add("hidden");
+  }
+
+  for (let e of otherDays) {
+    e.classList.remove("hidden");
+  }
+}
+
+export function fiveDayDisplay() {
+  const daysSixThroughTen = document.querySelectorAll(
+    ".daySixWeather, .daySevenWeather, .dayEightWeather, .dayNineWeather, .dayTenWeather",
+  );
+  const otherDays = document.querySelectorAll(
+    ".todaysWeather, .tomorrowsWeather, .dayThreeWeather, .dayFourWeather, .dayFiveWeather",
+  );
+  for (let e of daysSixThroughTen) {
+    e.classList.add("hidden");
+  }
+  for (let e of otherDays) {
+    e.classList.remove("hidden");
+  }
+}
+
+export function sevenDayDisplay() {
+  const daysEightThroughTen = document.querySelectorAll(
+    ".dayEightWeather, .dayNineWeather, .dayTenWeather",
+  );
+
+  const otherDays = document.querySelectorAll(
+    ".todaysWeather, .tomorrowsWeather, .dayThreeWeather, .dayFourWeather, .dayFiveWeather, .daySixWeather, .daySevenWeather",
+  );
+
+  for (let e of daysEightThroughTen) {
+    e.classList.add("hidden");
+  }
+
+  for (let e of otherDays) {
+    e.classList.remove("hidden");
+  }
+}
+
+export function tenDayDisplay() {
+  const allDays = document.querySelectorAll(
+    ".todaysWeather, .tomorrowsWeather, .dayThreeWeather, .dayFourWeather, .dayFiveWeather, .daySixWeather, .daySevenWeather, .dayEightWeather, .dayNineWeather, .dayTenWeather",
+  );
+  for (let e of allDays) {
+    e.classList.remove("active");
+  }
 }

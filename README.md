@@ -15,17 +15,17 @@ Features:
 - Select F or C
 
 ### Version 3
-Status: Not Started
+Status: Completed
 Features: 
 - Display 5 day forecast
-- Choose between 1, 3, and 5 day
+- Choose between 3, 5, 7, and 10 day
 - Basic Styling
 
 ### Version 4
 Status: Not Started
 Features: 
 - Display 10 day forecast
-- Add 10 day choice
+- Change Date to Day of Week
 - Advanced Styling
 
 ## Learned:

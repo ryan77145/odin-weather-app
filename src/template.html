@@ -3,14 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
     <script type="module" src="index.js" defer></script>
-    <title>Document</title>
+    <title>Weather</title>
   </head>
   <body>
     <header>
       <h1>Weather App</h1>
       <p>Let's check the weather in your area</p>
-      <button class="fOrC">F &deg;</button>
+      <button class="unitConversion">F &deg;</button>
+      <div class="forecasttoggle">
+        <button class="threeDay">3 Day</button>
+        <button class="fiveDay">5 Day</button>
+        <button class="sevenDay">7 Day</button>
+        <button class="tenDay">10 Day</button>
+      </div>
     </header>
     <div class="container">
       <input type="text" class="cityInput" placeholder="Enter city name" />
@@ -24,70 +31,70 @@
         <p class="currentDayTempMax">High:</p>
         <p class="currentDayTempMin">Low:</p>
         <p class="currentDayConditions">Current Conditions:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="tomorrowsWeather">
         <p class="tomorrow">Tomorrow</p>
         <p class="tomorrowTempMax">High:</p>
         <p class="tomorrowTempMin">Low:</p>
         <p class="tomorrowConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayThreeWeather">
         <p class="dayThreeDate">Date:</p>
         <p class="dayThreeTempMax">High:</p>
         <p class="dayThreeTempMin">Low:</p>
         <p class="dayThreeConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayFourWeather">
         <p class="dayFourDate">Date:</p>
         <p class="dayFourTempMax">High:</p>
         <p class="dayFourTempMin">Low:</p>
         <p class="dayFourConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayFiveWeather">
         <p class="dayFiveDate">Date:</p>
         <p class="dayFiveTempMax">High:</p>
         <p class="dayFiveTempMin">Low:</p>
         <p class="dayFiveConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="daySixWeather">
         <p class="daySixDate">Date:</p>
         <p class="daySixTempMax">High:</p>
         <p class="daySixTempMin">Low:</p>
         <p class="daySixConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="daySevenWeather">
         <p class="daySevenDate">Date:</p>
         <p class="daySevenTempMax">High:</p>
         <p class="daySevenTempMin">Low:</p>
         <p class="daySevenConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayEightWeather">
         <p class="dayEightDate">Date:</p>
         <p class="dayEightTempMax">High:</p>
         <p class="dayEightTempMin">Low:</p>
         <p class="dayEightConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayNineWeather">
         <p class="dayNineDate">Date:</p>
         <p class="dayNineTempMax">High:</p>
         <p class="dayNineTempMin">Low:</p>
         <p class="dayNineConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
       <div class="dayTenWeather">
         <p class="dayTenDate">Date:</p>
         <p class="dayTenTempMax">High:</p>
         <p class="dayTenTempMin">Low:</p>
         <p class="dayTenConditions">Conditions Expected:</p>
-        <img class="weatherIcon" alt="Weather Icon" />
+        <img class="weatherIcon"  />
       </div>
     </div>
   </body>

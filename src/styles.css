@@ -1,0 +1,73 @@
+:root {
+    --light-theme-background: lightblue;
+    --light-theme-accent: lightyellow;
+    --light-theme-secondary: white;
+    --light-theme-font: black;
+    --dark-theme-background: black;
+    --dark-theme-accent: lightgrey;
+    --dark-theme-secondary: navy;
+    --dark-theme-font: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+input, button {
+    font-family: inherit;
+}
+
+.todaysWeather.hidden, .tomorrowsWeather.hidden, .dayThreeWeather.hidden, .dayFourWeather.hidden, .dayFiveWeather.hidden, .daySixWeather.hidden, .daySevenWeather.hidden, .dayEightWeather.hidden, .dayNineWeather.hidden, .dayTenWeather.hidden {
+    display: none;
+}
+
+.todaysWeather, .tomorrowsWeather, .dayThreeWeather, .dayFourWeather, .dayFiveWeather, .daySixWeather, .daySevenWeather, .dayEightWeather, .dayNineWeather, .dayTenWeather {
+    border: 5px solid var(--light-theme-background);
+    background-color: var(--light-theme-background);
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.forecasttoggle {
+    display: flex;
+    margin: 10px;
+    text-align: center;
+}
+
+.forecasttoggle button {
+    text-align: center;
+    padding: 5px;
+}
+
+.threeDay {
+    border-right: none;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+}
+
+.fiveDay, .sevenDay {
+    border-left: none;
+    border-right: none;
+    background-color: white;
+}
+
+.tenDay {
+    border-left: none;
+    background-color: white;
+    border-radius: 0 10px 10px 0; 
+}
+
+.threeDay:hover, .fiveDay:hover, .sevenDay:hover, .tenDay:hover, .unitConversion:hover {
+    background-color: var(--dark-theme-accent)
+}
+
+.unitConversion {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+}
