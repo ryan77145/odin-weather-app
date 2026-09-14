@@ -22,7 +22,7 @@ Features:
 - Basic Styling
 
 ### Version 4
-Status: Not Started
+Status: In - Progress
 Features: 
 - Display 10 day forecast
 - Change Date to Day of Week
@@ -41,5 +41,7 @@ Features:
     - Fix: labeled each file and chose the appropriate information for each script
 - Import/Export 
     - Fix: learned more about the syntax and gained a deeper understanding
+- Refactoring
+    - I realized halfway through V3 I had written the code the long way and chose to refactor both dom.js, the HTML and the weatherData.js files to enhance readability and DRY.
 
 ## Live Link:

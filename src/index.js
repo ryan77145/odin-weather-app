@@ -66,11 +66,11 @@ btn.addEventListener("click", () => {
 });
 
 convertBtn.addEventListener("click", () => {
-  if (convertBtn.textContent === "F °") {
-    convertBtn.textContent = "C °";
+  if (convertBtn.textContent === "° F") {
+    convertBtn.textContent = "° C";
     toCelsius();
-  } else if (convertBtn.textContent === "C °") {
-    convertBtn.textContent = "F °";
+  } else if (convertBtn.textContent === "° C") {
+    convertBtn.textContent = "° F";
     toFahrenheit();
   }
 });
