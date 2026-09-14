@@ -2,3 +2,4 @@ node_modules/
 notes.txt
 notes2.txt
 dist/
+*Zone.Identifier
