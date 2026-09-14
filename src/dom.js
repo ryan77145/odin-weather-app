@@ -1,60 +1,25 @@
+// Weather Info
+export const dates = document.querySelectorAll(".date");
+export const tempMaxes = document.querySelectorAll(".tempMax");
+export const tempMins = document.querySelectorAll(".tempMin");
+export const conditions = document.querySelectorAll(".conditions");
+export const weatherIcon = document.querySelectorAll(".weatherIcon");
+
+// Divs
 export const weatherData = document.querySelector(".weatherData");
+export const dailyWeather = document.querySelectorAll(".dailyWeather");
+export const todaysWeather = document.querySelector(".todaysWeather");
+
+// Buttons
 export const cityInput = document.querySelector(".cityInput");
 export const btn = document.querySelector(".getWeatherBtn");
-export const convertBtn = document.querySelector('.unitConversion');
-export const threeDayBtn = document.querySelector('.threeDay');
-export const fiveDayBtn = document.querySelector('.fiveDay');
-export const sevenDayBtn = document.querySelector('.sevenDay');
-export const tenDayBtn = document.querySelector('.tenDay')
-export const todaysWeather = document.querySelector('.todaysWeather');
-export const locationName = document.querySelector('.location')
-export const currentTemperature = document.querySelector('.currentTemperature')
-export const currentDayHigh = document.querySelector('.currentDayTempMax');
-export const currentDayLow = document.querySelector('.currentDayTempMin');
-export const realFeel = document.querySelector('.currentDayRealFeel');
-export const currentDayConditions = document.querySelector('.currentDayConditions');
-export const weatherIcon = document.querySelectorAll(".weatherIcon");
-export const nextDayWeather = document.querySelector('.tomorrowsWeather');
-export const nextDayHigh = document.querySelector('.tomorrowTempMax')
-export const nextDayLow = document.querySelector('.tomorrowTempMin');
-export const nextDayConditions = document.querySelector('.tomorrowConditions');
-export const thirdDayWeather = document.querySelector('.dayThreeWeather');
-export const thirdDayDate = document.querySelector('.dayThreeDate');
-export const thirdDayHigh = document.querySelector(".dayThreeTempMax");
-export const thirdDayLow = document.querySelector('.dayThreeTempMin')
-export const thirdDayConditions = document.querySelector('.dayThreeConditions');
-export const fourthDayWeather = document.querySelector('.dayFourWeather')
-export const fourthDayDate = document.querySelector('.dayFourDate')
-export const fourthDayHigh = document.querySelector('.dayFourTempMax');
-export const fourthDayLow = document.querySelector('.dayFourTempMin')
-export const fourthDayConditions = document.querySelector('.dayFourConditions')
-export const fifthDayWeather = document.querySelector('.dayFiveWeather');
-export const fifthDayDate = document.querySelector('.dayFiveDate')
-export const fifthDayHigh= document.querySelector('.dayFiveTempMax')
-export const fifthDayLow = document.querySelector('.dayFiveTempMin');
-export const fifthDayConditions = document.querySelector('.dayFiveConditions');
-export const sixthDayWeather = document.querySelector('.daySixWeather');
-export const sixthDayDate = document.querySelector('.daySixDate')
-export const sixthDayHigh = document.querySelector('.daySixTempMax')
-export const sixthDayLow = document.querySelector('.daySixTempMin');
-export const sixthDayConditions = document.querySelector('.daySixConditions');
-export const seventhDayWeather = document.querySelector('.daySevenWeather');
-export const seventhDayDate = document.querySelector('.daySevenDate')
-export const seventhDayHigh = document.querySelector('.daySevenTempMax')
-export const seventhDayLow = document.querySelector('.daySevenTempMin');
-export const seventhDayConditions = document.querySelector('.daySevenConditions');
-export const eighthDayWeather = document.querySelector('.dayEightWeather');
-export const eighthDayDate = document.querySelector('.dayEightDate')
-export const eighthDayHigh = document.querySelector('.dayEightTempMax')
-export const eighthDayLow = document.querySelector('.dayEightTempMin');
-export const eighthDayConditions = document.querySelector('.dayEightConditions');
-export const ninthDayWeather = document.querySelector('.dayNineWeather');
-export const ninthDayDate = document.querySelector('.dayNineDate')
-export const ninthDayHigh = document.querySelector('.dayNineTempMax')
-export const ninthDayLow = document.querySelector('.dayNineTempMin');
-export const ninthDayConditions = document.querySelector('.dayNineConditions');
-export const tenthDayWeather = document.querySelector('.dayTenWeather');
-export const tenthDayDate = document.querySelector('.dayTenDate')
-export const tenthDayHigh = document.querySelector('.dayTenTempMax')
-export const tenthDayLow = document.querySelector('.dayTenTempMin');
-export const tenthDayConditions = document.querySelector('.dayTenConditions');
+export const convertBtn = document.querySelector(".unitConversion");
+export const threeDayBtn = document.querySelector(".threeDay");
+export const fiveDayBtn = document.querySelector(".fiveDay");
+export const sevenDayBtn = document.querySelector(".sevenDay");
+export const tenDayBtn = document.querySelector(".tenDay");
+
+// Current Day
+export const locationName = document.querySelector(".location");
+export const currentTemperature = document.querySelector(".currentTemperature");
+export const realFeel = document.querySelector(".currentDayRealFeel");

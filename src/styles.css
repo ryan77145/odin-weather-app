@@ -19,11 +19,11 @@ input, button {
     font-family: inherit;
 }
 
-.todaysWeather.hidden, .tomorrowsWeather.hidden, .dayThreeWeather.hidden, .dayFourWeather.hidden, .dayFiveWeather.hidden, .daySixWeather.hidden, .daySevenWeather.hidden, .dayEightWeather.hidden, .dayNineWeather.hidden, .dayTenWeather.hidden {
+.todaysWeather.hidden, .dailyWeather.hidden {
     display: none;
 }
 
-.todaysWeather, .tomorrowsWeather, .dayThreeWeather, .dayFourWeather, .dayFiveWeather, .daySixWeather, .daySevenWeather, .dayEightWeather, .dayNineWeather, .dayTenWeather {
+.todaysWeather, .dailyWeather {
     border: 5px solid var(--light-theme-background);
     background-color: var(--light-theme-background);
     margin: 20px;

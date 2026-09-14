@@ -28,6 +28,12 @@ Features:
 - Change Date to Day of Week
 - Advanced Styling
 
+### Version 5
+Status: Not Started
+Features:
+- Local Storage
+- 3 saved locations
+
 ## Learned:
 
 ## Challenges:
