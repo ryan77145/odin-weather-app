@@ -1,5 +1,5 @@
 :root {
-  --light-theme-background: lightblue;
+  --light-theme-background: 173, 216, 230;
   --light-theme-accent: lightyellow;
   --light-theme-secondary: white;
   --light-theme-font: black;
@@ -15,6 +15,10 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+body {
+  background-color: var(--light-theme-accent);
+}
+
 input,
 button {
   font-family: inherit;
@@ -27,8 +31,8 @@ button {
 
 .todaysWeather,
 .dailyWeather {
-  border: 5px solid var(--light-theme-background);
-  background-color: var(--light-theme-background);
+  border: 5px solid rgba(var(--light-theme-background), 0.7);
+  background-color: rgba(var(--light-theme-background), 0.7);
   margin: 20px;
   border-radius: 20px;
   text-align: center;
@@ -99,7 +103,7 @@ header {
     "dayChoice dayChoice";
   align-items: center;
   padding: 20px;
-  background-color: var(--light-theme-background);
+  background-color: rgba(var(--light-theme-background), 0.6);
   margin-bottom: 20px;
 }
 
@@ -133,22 +137,41 @@ h1 {
 
 @media (min-width: 490px) {
   header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-      "title title convert"
-      "input btn dayChoice";
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
   }
 
-  input {
-    grid-area: input;
-    align-self: center;
+  .forecasttoggle {
+    margin: 0 auto;
   }
 
-  .getWeatherBtn {
-    grid-area: btn;
-    align-self: center;
-    justify-self: center;
+  .unitConversion {
+    margin: 0 auto;
+  }
+
+  .cityInput {
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 750px) {
+  .dailyWeather {
+    width: 500px;
+  }
+
+  .todaysWeather {
+    width: 80%;
+  }
+  
+  .weatherData {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }

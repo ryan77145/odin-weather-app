@@ -22,7 +22,7 @@ Status: Completed
 - Basic Styling
 
 ### Version 4
-Status: In - Progress
+Status: Completed
 #### Features: 
 - Display 10 day forecast +
 - Change Date to Day of Week
@@ -33,6 +33,7 @@ Status: Not Started
 #### Features:
 - Local Storage
 - 3 saved locations
+- Additonal details/modal popup when clicked
 
 ## Learned:
 - Refactoring

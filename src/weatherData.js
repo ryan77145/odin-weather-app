@@ -23,7 +23,7 @@ export function returnWeather(
     dates[i].innerHTML = "";
     dates[i].appendChild(dateSpan);
   }
-  
+
   for (let i = 0; i < 10; i++) {
     const weatherMin = response.days[i].tempmin;
     const weatherMax = response.days[i].tempmax;
@@ -58,27 +58,51 @@ export function returnWeatherIcon(response, weatherIcon) {
   const rainy = "assets/rainy.png";
   const storming = "assets/storming.png";
   const snowy = "assets/snowing.png";
+  const sunnyBG = "assets/sunnyBG.png";
+  const cloudyBG = "assets/cloudyBG.png";
 
   for (let i = 0; i < 10; i++) {
     const conditions = response.days[i].conditions;
     const checkConditions = conditions.split(", ");
+    const todaysWeather = document.querySelector(".todaysWeather");
     if (checkConditions[0] === "Partially cloudy") {
       weatherIcon[i].src = partlyCloudy;
+      todaysWeather.style.backgroundImage = cloudyBG;
     }
     if (checkConditions[0] === "Overcast") {
       weatherIcon[i].src = cloudy;
+      todaysWeather.style.backgroundImage = cloudyBG;
     }
     if (checkConditions[0] === "Rain") {
       weatherIcon[i].src = rainy;
     }
     if (checkConditions[0] === "Clear") {
       weatherIcon[i].src = sunny;
+      todaysWeather.style.backgroundImage = sunnyBG;
     }
     if (checkConditions[0] === "Snow") {
       weatherIcon[i].src = snowy;
     }
     if (checkConditions[0] === "Storms") {
       weatherIcon[i].src = storming;
+    } else {
+      weatherIcon[i].src = partlyCloudy;
+    }
+  }
+  for (let i = 0; i < 8; i++) {
+    const conditions = response.days[i].conditions;
+    const checkConditions = conditions.split(", ");
+    const dailyWeather = document.querySelectorAll(".dailyWeather");
+    if (checkConditions[0] === "Partially cloudy") {
+      dailyWeather[i].style.backgroundImage = cloudyBG;
+    }
+    if (checkConditions[0] === "Overcast") {
+      dailyWeather[i].style.backgroundImage = cloudyBG;
+    }
+    if (checkConditions[0] === "Clear") {
+      dailyWeather[i].style.backgroundImage = sunnyBG;
+    } else {
+      weatherIcon[i].src = partlyCloudy;
     }
   }
 }
@@ -93,14 +117,14 @@ export function returnLocation(response, locationName) {
 export function returnCurrentTemp(response, currentTemperature) {
   const currentTempInfo = document.createElement("span");
   currentTempInfo.setAttribute("class", "currentTempInfo");
-  currentTempInfo.textContent = " " + response.days[0].temp;
+  currentTempInfo.textContent = "  " + response.days[0].temp;
   currentTemperature.appendChild(currentTempInfo);
 }
 
 export function returnRealFeel(response, realFeel) {
   const realFeelInfo = document.createElement("span");
   realFeelInfo.setAttribute("class", "realFeelInfo");
-  realFeelInfo.textContent = "   " + response.days[0].feelslike;
+  realFeelInfo.textContent = "    " + response.days[0].feelslike;
   realFeel.appendChild(realFeelInfo);
 }
 
