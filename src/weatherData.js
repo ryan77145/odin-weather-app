@@ -6,32 +6,44 @@ export function returnWeather(
   conditions,
 ) {
   for (let i = 0; i < 8; i++) {
-    const weatherDate = response.days[i].datetime;
+    const dayNames = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const weatherDate =
+      dayNames[new Date(response.days[i].datetime).getUTCDay()];
+    const dateSpan = document.createElement("span");
+    dateSpan.setAttribute("class", "dateSpan");
+    dateSpan.textContent = "" + weatherDate;
+    dates[i].innerHTML = "";
+    dates[i].appendChild(dateSpan);
+  }
+  for (let i = 0; i < 10; i++) {
     const weatherMin = response.days[i].tempmin;
     const weatherMax = response.days[i].tempmax;
     const weatherCon = response.days[i].conditions;
 
-    const dateSpan = document.createElement("span");
     const tempMinSpan = document.createElement("span");
     const tempMaxSpan = document.createElement("span");
     const conditionSpan = document.createElement("span");
 
-    dateSpan.setAttribute("class", "dateSpan");
     tempMinSpan.setAttribute("class", "tempMinSpan");
     tempMaxSpan.setAttribute("class", "tempMaxSpan");
     conditionSpan.setAttribute("class", "conditionSpan");
 
-    dateSpan.textContent = "" + weatherDate;
     tempMinSpan.textContent = "" + weatherMin;
     tempMaxSpan.textContent = "" + weatherMax;
     conditionSpan.textContent = "" + weatherCon;
 
-    dates[i].innerHTML = "Date: ";
     tempMaxes[i].innerHTML = "High: ";
     tempMins[i].innerHTML = "Low: ";
     conditions[i].innerHTML = "Conditions: ";
 
-    dates[i].appendChild(dateSpan);
     tempMins[i].appendChild(tempMinSpan);
     tempMaxes[i].appendChild(tempMaxSpan);
     conditions[i].appendChild(conditionSpan);
@@ -93,37 +105,59 @@ export function returnRealFeel(response, realFeel) {
 
 export function toFahrenheit() {
   const el = document.querySelector(".currentTempInfo");
-  if (el) el.textContent = ((parseFloat(el.textContent) * 9) / 5 + 32).toFixed(1);
+  if (el)
+    el.textContent = ((parseFloat(el.textContent) * 9) / 5 + 32).toFixed(1);
 
   const realFeelEl = document.querySelector(".realFeelInfo");
-  if (realFeelEl) realFeelEl.textContent = ((parseFloat(realFeelEl.textContent) * 9) / 5 + 32).toFixed(1);
+  if (realFeelEl)
+    realFeelEl.textContent = (
+      (parseFloat(realFeelEl.textContent) * 9) / 5 +
+      32
+    ).toFixed(1);
 
   const tempMaxSpans = document.querySelectorAll(".tempMaxSpan");
   const tempMinSpans = document.querySelectorAll(".tempMinSpan");
 
   for (let i = 0; i < tempMaxSpans.length; i++) {
-    tempMaxSpans[i].textContent = ((parseFloat(tempMaxSpans[i].textContent) * 9) / 5 + 32).toFixed(1);
+    tempMaxSpans[i].textContent = (
+      (parseFloat(tempMaxSpans[i].textContent) * 9) / 5 +
+      32
+    ).toFixed(1);
   }
   for (let i = 0; i < tempMinSpans.length; i++) {
-    tempMinSpans[i].textContent = ((parseFloat(tempMinSpans[i].textContent) * 9) / 5 + 32).toFixed(1);
+    tempMinSpans[i].textContent = (
+      (parseFloat(tempMinSpans[i].textContent) * 9) / 5 +
+      32
+    ).toFixed(1);
   }
 }
 
 export function toCelsius() {
   const el = document.querySelector(".currentTempInfo");
-  if (el) el.textContent = (((parseFloat(el.textContent) - 32) * 5) / 9).toFixed(1);
+  if (el)
+    el.textContent = (((parseFloat(el.textContent) - 32) * 5) / 9).toFixed(1);
 
   const realFeelEl = document.querySelector(".realFeelInfo");
-  if (realFeelEl) realFeelEl.textContent = (((parseFloat(realFeelEl.textContent) - 32) * 5) / 9).toFixed(1);
+  if (realFeelEl)
+    realFeelEl.textContent = (
+      ((parseFloat(realFeelEl.textContent) - 32) * 5) /
+      9
+    ).toFixed(1);
 
   const tempMaxSpans = document.querySelectorAll(".tempMaxSpan");
   const tempMinSpans = document.querySelectorAll(".tempMinSpan");
 
   for (let i = 0; i < tempMaxSpans.length; i++) {
-    tempMaxSpans[i].textContent = (((parseFloat(tempMaxSpans[i].textContent) - 32) * 5) / 9).toFixed(1);
+    tempMaxSpans[i].textContent = (
+      ((parseFloat(tempMaxSpans[i].textContent) - 32) * 5) /
+      9
+    ).toFixed(1);
   }
   for (let i = 0; i < tempMinSpans.length; i++) {
-    tempMinSpans[i].textContent = (((parseFloat(tempMinSpans[i].textContent) - 32) * 5) / 9).toFixed(1);
+    tempMinSpans[i].textContent = (
+      ((parseFloat(tempMinSpans[i].textContent) - 32) * 5) /
+      9
+    ).toFixed(1);
   }
 }
 
