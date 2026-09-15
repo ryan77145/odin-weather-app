@@ -58,8 +58,8 @@ export function returnWeatherIcon(response, weatherIcon) {
   const rainy = "assets/rainy.png";
   const storming = "assets/storming.png";
   const snowy = "assets/snowing.png";
-  const sunnyBG = "assets/sunnyBG.png";
-  const cloudyBG = "assets/cloudyBG.png";
+  const sunnyBG = "assets/sunnyBG.jpg";
+  const cloudyBG = "assets/cloudyBG.jpg";
 
   for (let i = 0; i < 10; i++) {
     const conditions = response.days[i].conditions;
