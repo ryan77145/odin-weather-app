@@ -12,7 +12,7 @@ export default {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/repo-name/",
+    publicPath: "/odin-weather-app/",
     clean: true,
   },
   devtool: "eval-source-map",
@@ -27,7 +27,7 @@ export default {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "assets", to: "assets" },
+        { from: "src/assets", to: "assets" },
         { from: "src/styles.css", to: "styles.css" },
       ],
     }),

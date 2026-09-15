@@ -16,13 +16,14 @@ export function returnWeather(
       "Saturday",
     ];
     const weatherDate =
-      dayNames[new Date(response.days[i].datetime).getUTCDay()];
+      dayNames[new Date(response.days[i + 2].datetime).getUTCDay()];
     const dateSpan = document.createElement("span");
     dateSpan.setAttribute("class", "dateSpan");
     dateSpan.textContent = "" + weatherDate;
     dates[i].innerHTML = "";
     dates[i].appendChild(dateSpan);
   }
+  
   for (let i = 0; i < 10; i++) {
     const weatherMin = response.days[i].tempmin;
     const weatherMax = response.days[i].tempmax;
