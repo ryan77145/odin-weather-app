@@ -39,9 +39,10 @@ Status: Not Started
     - I realized halfway through V3 I had written the code the long way and chose to refactor both dom.js, the HTML and the weatherData.js files to enhance readability and DRY.
 
 ## Challenges:
-- JavaScript file seperation 
+- JavaScript file separation 
     - Fix: labeled each file and chose the appropriate information for each script
 - Import/Export 
     - Fix: learned more about the syntax and gained a deeper understanding
 
 ## Live Link:
+https://ryan77145.github.io/odin-weather-app/
