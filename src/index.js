@@ -33,13 +33,13 @@ import {
   tenDayDisplay,
 } from "./weatherData.js";
 
-/*defaultFetchData().then(function (data) {
+defaultFetchData().then(function (data) {
   returnLocation(data, locationName);
   returnCurrentTemp(data, currentTemperature);
   returnRealFeel(data, realFeel);
   returnWeatherIcon(data, weatherIcon);
   returnWeather(data, dates, tempMins, tempMaxes, conditions);
-});*/
+});
 
 cityInput.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
