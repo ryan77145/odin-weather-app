@@ -85,8 +85,6 @@ export function returnWeatherIcon(response, weatherIcon) {
     }
     if (checkConditions[0] === "Storms") {
       weatherIcon[i].src = storming;
-    } else {
-      weatherIcon[i].src = partlyCloudy;
     }
   }
   for (let i = 0; i < 8; i++) {
@@ -101,13 +99,12 @@ export function returnWeatherIcon(response, weatherIcon) {
     }
     if (checkConditions[0] === "Clear") {
       dailyWeather[i].style.backgroundImage = sunnyBG;
-    } else {
-      weatherIcon[i].src = partlyCloudy;
     }
   }
 }
 
 export function returnLocation(response, locationName) {
+  locationName.innerHTML = "Location: ";
   const locationInfo = document.createElement("span");
   locationInfo.setAttribute("class", "locationInfo");
   locationInfo.textContent = "    " + response.address;
@@ -115,6 +112,7 @@ export function returnLocation(response, locationName) {
 }
 
 export function returnCurrentTemp(response, currentTemperature) {
+  currentTemperature.innerHTML = "Temperature: ";
   const currentTempInfo = document.createElement("span");
   currentTempInfo.setAttribute("class", "currentTempInfo");
   currentTempInfo.textContent = "  " + response.days[0].temp;
@@ -122,6 +120,7 @@ export function returnCurrentTemp(response, currentTemperature) {
 }
 
 export function returnRealFeel(response, realFeel) {
+  realFeel.innerHTML = "Feels Like: "
   const realFeelInfo = document.createElement("span");
   realFeelInfo.setAttribute("class", "realFeelInfo");
   realFeelInfo.textContent = "    " + response.days[0].feelslike;
@@ -129,60 +128,26 @@ export function returnRealFeel(response, realFeel) {
 }
 
 export function toFahrenheit() {
-  const el = document.querySelector(".currentTempInfo");
-  if (el)
-    el.textContent = ((parseFloat(el.textContent) * 9) / 5 + 32).toFixed(1);
-
-  const realFeelEl = document.querySelector(".realFeelInfo");
-  if (realFeelEl)
-    realFeelEl.textContent = (
-      (parseFloat(realFeelEl.textContent) * 9) / 5 +
-      32
-    ).toFixed(1);
-
-  const tempMaxSpans = document.querySelectorAll(".tempMaxSpan");
-  const tempMinSpans = document.querySelectorAll(".tempMinSpan");
-
-  for (let i = 0; i < tempMaxSpans.length; i++) {
-    tempMaxSpans[i].textContent = (
-      (parseFloat(tempMaxSpans[i].textContent) * 9) / 5 +
-      32
-    ).toFixed(1);
-  }
-  for (let i = 0; i < tempMinSpans.length; i++) {
-    tempMinSpans[i].textContent = (
-      (parseFloat(tempMinSpans[i].textContent) * 9) / 5 +
-      32
-    ).toFixed(1);
+  const els = document.querySelectorAll(
+    ".currentTempInfo, .realFeelInfo, .tempMaxSpan, .tempMinSpan"
+  );
+  for (const el of els) {
+    if (el.dataset.f === undefined) {
+      el.dataset.f = parseFloat(el.textContent);
+    }
+    el.textContent = ((parseFloat(el.dataset.f) * 9) / 5 + 32).toFixed(1);
   }
 }
 
 export function toCelsius() {
-  const el = document.querySelector(".currentTempInfo");
-  if (el)
-    el.textContent = (((parseFloat(el.textContent) - 32) * 5) / 9).toFixed(1);
-
-  const realFeelEl = document.querySelector(".realFeelInfo");
-  if (realFeelEl)
-    realFeelEl.textContent = (
-      ((parseFloat(realFeelEl.textContent) - 32) * 5) /
-      9
-    ).toFixed(1);
-
-  const tempMaxSpans = document.querySelectorAll(".tempMaxSpan");
-  const tempMinSpans = document.querySelectorAll(".tempMinSpan");
-
-  for (let i = 0; i < tempMaxSpans.length; i++) {
-    tempMaxSpans[i].textContent = (
-      ((parseFloat(tempMaxSpans[i].textContent) - 32) * 5) /
-      9
-    ).toFixed(1);
-  }
-  for (let i = 0; i < tempMinSpans.length; i++) {
-    tempMinSpans[i].textContent = (
-      ((parseFloat(tempMinSpans[i].textContent) - 32) * 5) /
-      9
-    ).toFixed(1);
+  const els = document.querySelectorAll(
+    ".currentTempInfo, .realFeelInfo, .tempMaxSpan, .tempMinSpan"
+  );
+  for (const el of els) {
+    if (el.dataset.f === undefined) {
+      el.dataset.f = parseFloat(el.textContent);
+    }
+    el.textContent = (((parseFloat(el.dataset.f) - 32) * 5) / 9).toFixed(1);
   }
 }
 

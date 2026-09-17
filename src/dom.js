@@ -9,6 +9,7 @@ export const weatherIcon = document.querySelectorAll(".weatherIcon");
 export const weatherData = document.querySelector(".weatherData");
 export const dailyWeather = document.querySelectorAll(".dailyWeather");
 export const todaysWeather = document.querySelector(".todaysWeather");
+export const errorMessage = document.querySelector(".error");
 
 // Buttons
 export const cityInput = document.querySelector(".cityInput");

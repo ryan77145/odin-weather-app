@@ -1,4 +1,4 @@
-import './styles.css'; 
+import "./styles.css";
 import {
   dates,
   tempMaxes,
@@ -18,6 +18,7 @@ import {
   fiveDayBtn,
   sevenDayBtn,
   tenDayBtn,
+  errorMessage,
 } from "./dom.js";
 import { fetchData, defaultFetchData } from "./weatherApi.js";
 import {
@@ -34,35 +35,47 @@ import {
   tenDayDisplay,
 } from "./weatherData.js";
 
-defaultFetchData().then(function (data) {
-  returnLocation(data, locationName);
-  returnCurrentTemp(data, currentTemperature);
-  returnRealFeel(data, realFeel);
-  returnWeatherIcon(data, weatherIcon);
-  returnWeather(data, dates, tempMins, tempMaxes, conditions);
-});
-
-cityInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    fetchData().then(function (data) {
-      returnLocation(data, locationName);
-      returnCurrentTemp(data, currentTemperature);
-      returnRealFeel(data, realFeel);
-      returnWeatherIcon(data, weatherIcon);
-      returnWeather(data, dates, tempMins, tempMaxes, conditions);
-    });
-    cityInput.value = "";
-  }
-});
-
-btn.addEventListener("click", () => {
-  fetchData().then(function (data) {
+defaultFetchData()
+  .then(function (data) {
     returnLocation(data, locationName);
     returnCurrentTemp(data, currentTemperature);
     returnRealFeel(data, realFeel);
     returnWeatherIcon(data, weatherIcon);
     returnWeather(data, dates, tempMins, tempMaxes, conditions);
+  })
+  .catch(function (err) {
+    errorMessage.textContent = err.message;
   });
+
+cityInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    fetchData()
+      .then(function (data) {
+        returnLocation(data, locationName);
+        returnCurrentTemp(data, currentTemperature);
+        returnRealFeel(data, realFeel);
+        returnWeatherIcon(data, weatherIcon);
+        returnWeather(data, dates, tempMins, tempMaxes, conditions);
+      })
+      .catch(function (err) {
+        errorMessage.textContent = err.message;
+      });
+    cityInput.value = "";
+  }
+});
+
+btn.addEventListener("click", () => {
+  fetchData()
+    .then(function (data) {
+      returnLocation(data, locationName);
+      returnCurrentTemp(data, currentTemperature);
+      returnRealFeel(data, realFeel);
+      returnWeatherIcon(data, weatherIcon);
+      returnWeather(data, dates, tempMins, tempMaxes, conditions);
+    })
+    .catch(function (err) {
+      errorMessage.textContent = err.message;
+    });
   cityInput.value = "";
 });
 
